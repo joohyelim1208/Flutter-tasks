@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         colorScheme: ColorScheme.light(),
-        scaffoldBackgroundColor: Colors.grey[200],
+        scaffoldBackgroundColor: Colors.grey[400],
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.grey[200],
+          backgroundColor: Colors.grey[350],
           elevation: 0,
+          // 값 더 줘야됨.
         ),
       ),
       darkTheme: ThemeData(colorScheme: ColorScheme.dark()),
@@ -44,9 +45,15 @@ class HomePage extends StatelessWidget {
       // 필수. ListView 스크롤 기능!
       body: ListView(
         children: [
-          // padding값 꼭 들어가야 함
-          Padding(
-            padding: const EdgeInsets.all(20),
+          // 필수. margin여백이 바깥쪽, padding여백이 안쪽 값 꼭 들어가야 함
+          Container(
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(vertical: 20),
+            decoration: BoxDecoration(
+              color: Colors.grey[350],
+              borderRadius: BorderRadius.circular(12),
+            ),
+
             child: Column(
               children: [
                 // 필수. 원하는 이미지 추가
@@ -57,7 +64,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black38,
+                    color: Colors.black54,
                   ),
                 ),
                 SizedBox(height: 12),
@@ -65,13 +72,25 @@ class HomePage extends StatelessWidget {
                 Text(
                   //
                   "할 일을 추가하고 $myTitle에서 \n할 일을 추적하세요.",
-                  style: TextStyle(fontSize: 14, height: 1.5),
+                  style: TextStyle(
+                    fontSize: 14,
+                    height: 1.5,
+                    color: Colors.black54,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
         ],
+      ),
+      // 플로팅 액션버튼- 위젯 중에 하나
+      floatingActionButton: FloatingActionButton(
+        // 버튼을 누르면 동작함
+        onPressed: () {},
+        child: Icon(Icons.add, color: Colors.white),
+        backgroundColor: Colors.deepOrangeAccent[700],
+        shape: CircleBorder(),
       ),
     );
   }
