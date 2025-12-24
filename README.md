@@ -1,113 +1,48 @@
-# flutter_tasks
+# 🌈 To Do App 만들기
+Flutter 기초 개인과제 - 제시된 UI디자인을 참고하여 할 일을 관리하는 앱을 개발하여야 한다. 
+***
+## 🤔 1. 앱 개발의 목적은?
+**target[ 사용자 ]**
+▶︎ 1. 오늘의 할 일, 나중에 할 일 까지 앱에 나의 일정을 기록함으로서 중요하거나 사소한 일정까지 흐트러지는걸 방지하고, 계속 기억을 떠올려야 하는 스트레스를 줄여주게 됩니다.
+▶︎ 2. 한 눈에 보이도록 목록을 배치해 일의 우선순위가 무엇인지, 무엇부터 해야하는지 기준을 만들어줍니다.
+▶︎ 3. 계획대로 해낸 일이 있다면 하나씩 체크하면서 성취감까지 느낄 수 있습니다.
 
-1~3번 필수문제 홈페이지 부분
-1. Scaffole구조 부터 시작해서
- Column 구조
-2. AppBar 구현
- 구조
- - Text (수강생 이름 들어가야 함)
-3. body 구현
- 구조
- - Container
-   - Column
-     - Icon
-     - Text
-     - Text
-     - Text
+>계획을 세우는 일에 습관을 들이고, 해내가다 보면 얻을 수 있는 성취감들은 작은 일상이나 중요한 일들을 하는 것에도 긍정적인 동기부여를 불러옵니다. 
+***
+## 😲 2. 어떤 기술을 사용했나요?
+**🍋[ 생성 / 저장 / 수정 / 삭제 ]**
 
- To Do 상세내역 화면 이름
- - ToDoDetailPage.dart 파일 별도로 생성
+- 할 일을 입력하는 기능
+- 할 일을 리스트에 저장하는 기능
+- 저장된 할 일의 목록을 화면에 보여주는 기능
+- 할 일의 목록을 체크하는 기능
+- 할 일의 목록안에 들어가 삭제 또는 수정하는 기능
 
-UI 디자인과 똑같이 구현해야 한다!!
+**[ 부가기능 ]**
+- 사용자의 눈 피로도를 줄이기 위한 라이트/다크 테마 모드
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Scaffold구조 안에 앱 바, 바디 구성
-    return Scaffold(
-      // 도전. 테마데이터 scaffoldBackgroundColor로 지정해주기!
-      backgroundColor: Colors.grey[400],
-      // 앱 바 폴더를 따로 만들어서 이동시켜 줌
-      appBar: homeAppBar(),
-      // 리스트뷰는 스크롤 가능한 리스트 형태로 표시하는 기능
-      body: ListView(
-        children: [
-          // 필수. padding적용하기
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Container(
-                  height: 250,
-                  decoration: BoxDecoration(
-                    // 도전. 테마모드에 따라 컬러 바뀌게 적용하기
-                    color: Colors.grey[200],
-                    // 필수. 라운딩 적용하기
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                // 필수. 하단 Icon Class의 add icon사용
-                // 필수. addTodo 함수 작성 및 위젝에 연결 해야됨
-                SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: IconButton(
-                    icon: Icon(Icons.add, size: 24, color: Colors.white),
-                    color: Colors.deepOrangeAccent,
-                    onPressed: () {},
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-      // 하단+아이콘
-    );
-    return MaterialApp(
-      home: HomePage(),
-
-      // 필수조건. 테마를 적용해야 한다!
-      // 테마 데이터 적용
-      themeMode: ThemeMode.system,
-      theme: lightTheme,
-      darkTheme: darkTheme,
-    );
-  }
-}
-
-투두 상세화면 페이지는 파일 따로 파서
-별도 스캐폴드 만들고 별도의 앱바 만들고
-홈화면 앱바랑 다르다!
-actions 쪽에 즐겨찾기 넣으면 되고
-leading 앞쪽 리딩
-
-뒤로가기 버튼
-
-1. main파일에서 homePage()클래스와 테마를 받아줌
-homePage는 appbar와 body영역에 대한 정보가 있음
-플로팅버튼도 클래스 별도로 만들어서 적용시켜주기.
-
-appBar: AppBarTitle(title2: widget.title),
-2. appBar영역을 클래스를 만들어줌. title2에 대한 높이값, 텍스트 스타일 등 정보 
-똑같이 'title'이라고 변수명을 만들어줘도 상관은 없지만 어디서 넘어온건지 헷갈리니까 이름을 바꿔줌
+***
+## 😆 3. 어떻게 작동하나요?
+**👍[ 사용자 ]**
+1. 앱의 아이콘을 터치해 실행시킵니다.
+2. 할 일을 입력하고 싶을 때, 홈 화면에서 오른쪽 하단의 + 버튼을 누릅니다.
+3. To Do를 추가하기 위한 텍스트를 입력하는 창이 뜹니다.
+4. 적고싶은 내용을 입력하세요!
+5. 텍스트란에 있는 아이콘들을 클릭하면 세부정보를 추가하거나 중요 별 표시를 할 수 있습니다.
+6. 내용을 전부 입력한 뒤에 '저장' 버튼을 눌러 저장합니다.
+7. To Do가 추가 된 홈 화면에서 여러개의 할 일을 더 추가할 수 있습니다.
+8. 할 일을 완수했다면 체크표시를 눌러 표시할 수 있습니다.
+8-1. 중요한 일은 별 표시를 체크해 우선순위를 설정할 수 있습니다.
+9. 목록의 할 일들을 탭하면 세부내용을 확인할 수 있습니다.
+10. 내용은 수정하거나 삭제할 수 있습니다.
+***
+**🧡[ 기술 구현 ]**
+1. 디자인과 같은 UI 화면구성을 위해 각 영역을 나누고, 그 안에 들어가는 위젯들의 클래스를 만들어 별도의 파일로 관리할 수 있도록 했습니다.
+2. 터치가 입력되는 버튼을 구현했습니다.
+3. 텍스트를 입력하는 창을 구현하고, 텍스트가 입력되지 않으면 저장이 되지 않도록 설정했습니다.
+4. 리스트 목록을 관리하고 상태가 변경 가능하도록 구현했습니다.
+5. 저장, 삭제, 수정에 대한 기능을 구현했습니다.
 
 
-3. homePage파일에서 appBar를 출력할 때 title2를 받아와서 입력을 해주고, 홈페이지에서 출력을 해줘야 되니까.
-title을 출력하고 싶으면 statefulWiget이기 때문에 widget.title 이라고 붙여서 출력해줌
-
-4. main에서 출력하고 싶은 title의 내용을 입력해줌
-main파일에서 home: HomePage(title: "혜림`s Tasks"),
-
-정리하자면,
-main에서는 MaterialApp안에 각 page영역을 가져오고,
-home Page 안에는 Scaffold 구조 안에 appBar와 body, bottom 영역이 담겨있고,
-각 appbar 등 구조가 복잡해지는걸 Class를 구성해서 별도의 파일로 빼준 뒤,
-home page안으로 가져와서 구조를 만든걸 담아주고,
-main에서는 완성된 구조에서 출력만 하면 되는 것. title 부분에 들어가는 text를 적어준다던지..
+## 🥹 4. 어떤 트러블이 있었고 트러블 슈팅은 어떻게 진행했나요?
+벨로그에 코드를 구현하는 진행과정과 발생한 문제들에 대해 정리했습니다.
