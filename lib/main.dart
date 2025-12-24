@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 
       home: HomePage(title: "혜림`s Tasks"),
 
-      // 필수조건. 테마를 적용해야 한다!
+      // 도전. 테마를 적용해야 한다!
       // 테마 데이터 적용
       themeMode: ThemeMode.system,
 
